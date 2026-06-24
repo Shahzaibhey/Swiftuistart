@@ -21,17 +21,10 @@ struct PrimaryButtonView: View {
                 .cornerRadius(24)
             }
         }
-        
-        if needsToShowSomeContent {
-            RoundedRectangle(cornerRadius: 24)
-                .frame(width: 240, height: 120)
-        }
     }
     
     func handlePrimaryButtonAction() {
-        withAnimation {
-            needsToShowSomeContent.toggle()
-        }
+        needsToShowSomeContent = true
     }
     
 }
