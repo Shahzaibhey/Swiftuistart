@@ -1,18 +1,34 @@
 import SwiftUI
 
 struct PrimaryButtonView: View {
+    
+    @State private(set) var needsToShowSomeContent: Bool = false
+    
+    
     var body: some View {
-        Button {
-            // Action
-        } label: {
-            Label {
-                Text("Primary Button")
-            } icon: {
-                Image(systemName: "heart.fill")
+        VStack {
+            Button {
+                handlePrimaryButtonAction()
+            } label: {
+                Label {
+                    Text("Primary Button")
+                } icon: {
+                    Image(systemName: "heart.fill")
+                }
+                
             }
-
         }
-
+        
+        if needsToShowSomeContent {
+            RoundedRectangle(cornerRadius: 24)
+                .frame(width: 240, height: 120)
+        }
+    }
+    
+    func handlePrimaryButtonAction() {
+        withAnimation {
+            needsToShowSomeContent.toggle()
+        }
     }
 }
 
